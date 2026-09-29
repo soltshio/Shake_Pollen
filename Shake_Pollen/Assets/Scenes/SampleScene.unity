@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97189044}
   m_Layer: 0
-  m_Name: Cancass
+  m_Name: Cancases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,10 +624,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00000
+  m_text: Score:00000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
+  m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
