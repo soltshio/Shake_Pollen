@@ -31,7 +31,7 @@ public class ShakePt : MonoBehaviour
             _point = 0;
 
             //(右)コントローラーの取得
-            var _rightJoycon = await JoyconHandler.GetRightJoyconAsync(ct);
+            _rightJoycon = await JoyconHandler.GetRightJoyconAsync(ct);
 
             //ポイント取得処理の開始
             GetPointAsync(ct).Forget();
@@ -62,6 +62,8 @@ public class ShakePt : MonoBehaviour
 
         //加速度の大きさを計算
         float magnitudeAccel = accel.magnitude;
+
+        Debug.Log(magnitudeAccel);
 
         //加算ポイントを計算
         float addPoint = magnitudeAccel * _pointMagnification;
