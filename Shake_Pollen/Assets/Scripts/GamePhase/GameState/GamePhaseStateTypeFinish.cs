@@ -1,23 +1,40 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 
 //ゲーム終了時のフェーズ
 
 public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
 {
+    [SerializeField]
+    AudioSource _audioSource;
+
+    [SerializeField]
+    AudioClip _finishSE;
+
+    [SerializeField]
+    Canvas _finishCanvas;
+
+    [SerializeField]
+    TextMeshProUGUI _scoreText;
+
+    [SerializeField]
+    ShakePt _shakePt;
+
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
-        //ゲーム開始時の処理
-        Debug.Log("GamePhaseStateTypeStart: OnEnter");
+        _audioSource.PlayOneShot(_finishSE);
+        _finishCanvas.enabled = true;
+        _scoreText.text = _shakePt.Point.ToString("0");
     }
 
     public override void OnUpdate(GamePhaseStateMachine stateMachine)
     {
-        //ゲーム開始時の毎フレームの処理
+        
     }
 
     public override void OnExit(GamePhaseStateMachine stateMachine)
     {
-        //ゲーム開始時の終了時の処理
-        Debug.Log("GamePhaseStateTypeStart: OnExit");
+        
     }
 }

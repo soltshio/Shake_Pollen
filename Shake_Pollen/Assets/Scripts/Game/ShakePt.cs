@@ -21,6 +21,8 @@ public class ShakePt : MonoBehaviour
 
     Joycon _rightJoycon;
 
+    public float Point { get { return _point; } }
+
     async void Start()
     {
         var ct = this.GetCancellationTokenOnDestroy();
