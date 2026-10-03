@@ -6,38 +6,48 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField]
-    float _maxTime = 0;
+    float _setUpTime = 0;
 
     public event Action OnTimeUp;
 
     float _remainingTime = 0;
-    bool _isPlaying = false;
+    bool _isRunning = false;
 
-    public float MaxTime { get { return _maxTime; } }
+    public float SetUpTime { get { return _setUpTime; } }
     public float RemainingTime { get { return _remainingTime; } }
-    public bool IsPlaying { get { return _isPlaying; } }
+    public bool IsPlaying { get { return _isRunning; } }
 
-    public void Play()
+    public void Initialize()
     {
-        if (_isPlaying) return;
+        _isRunning = false;
+        _remainingTime = _setUpTime;
+    }
+
+    public void Run()
+    {
+        if (_isRunning) return;
+
+        _isRunning = true;
     }
 
     public void Stop()
     {
-        if (!_isPlaying) return;
+        if (!_isRunning) return;
+
+        _isRunning = false;
     }
 
     void Update()
     {
-        if (!_isPlaying) return;
+        if (!_isRunning) return;
 
         _remainingTime -= Time.deltaTime;
 
         if (_remainingTime >= 0) return;
 
-        _isPlaying = false;
+        //タイムアップ
+        _remainingTime = 0;
+        _isRunning = false;
         OnTimeUp?.Invoke();
     }
-
-    
 }
