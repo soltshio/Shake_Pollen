@@ -942,6 +942,51 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &571524274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571524275}
+  - component: {fileID: 571524276}
+  m_Layer: 0
+  m_Name: TimerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &571524275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571524274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 678041041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &571524276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571524274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17bf3a4880ea77488a32df56a3d25bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Timer
+  _setUpTime: 30
 --- !u!1 &643209800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1156,7 @@ Transform:
   - {fileID: 2106922013}
   - {fileID: 2106258229}
   - {fileID: 1565093740}
+  - {fileID: 571524275}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
@@ -1521,6 +1567,7 @@ MonoBehaviour:
   _countDownAudioSource: {fileID: 1233706304}
   _startCanvas: {fileID: 332954761}
   _countDownText: {fileID: 1691933162}
+  _shakePt: {fileID: 2106922014}
   _startText: Start!
   _waitDurationToStartPlayCountDownSE: 0.1
   _waitDurationFromStartGameToHideUI: 1
@@ -1953,6 +2000,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e9f1648eea2404693844feb68c5f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GamePhaseStateTypeInGame
+  _inGameCanvas: {fileID: 1240047693}
+  _timerText: {fileID: 643209802}
+  _timer: {fileID: 571524276}
+  _shakePt: {fileID: 2106922014}
 --- !u!1 &1691933160
 GameObject:
   m_ObjectHideFlags: 0

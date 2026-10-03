@@ -18,6 +18,9 @@ public class GamePhaseStateTypeStart : GamePhaseStateTypeBase
     TextMeshProUGUI _countDownText;
 
     [SerializeField]
+    ShakePt _shakePt;
+
+    [SerializeField]
     string _startText = "Start!";
 
     [Tooltip("カウントダウンのSEを流すまでに遅延させる時間")] [SerializeField]
@@ -32,6 +35,7 @@ public class GamePhaseStateTypeStart : GamePhaseStateTypeBase
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _startCanvas.enabled = true;
+        _shakePt.enabled = false;
 
         CountDownAsync(this.GetCancellationTokenOnDestroy(),stateMachine).Forget();
     }
