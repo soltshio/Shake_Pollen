@@ -21,9 +21,13 @@ public class ShakePt : MonoBehaviour
 
     Joycon _rightJoycon;
 
-    async void Start()
+    SingleTaskCancellation _singleTaskCancellation=new();
+
+    public float Point { get { return _point; } }
+
+    async void OnEnable()
     {
-        var ct = this.GetCancellationTokenOnDestroy();
+        var ct = _singleTaskCancellation.CancelAndReCreateToken(this.GetCancellationTokenOnDestroy());
 
         try
         {
@@ -36,10 +40,16 @@ public class ShakePt : MonoBehaviour
             //ポイント取得処理の開始
             GetPointAsync(ct).Forget();
         }
-        catch(OperationCanceledException)
+        catch (OperationCanceledException)
         {
 
         }
+    }
+
+    void OnDisable()
+    {
+        //ポイント取得処理の停止
+        _singleTaskCancellation.Cancel();
     }
 
     async UniTask GetPointAsync(CancellationToken ct)
