@@ -19,7 +19,7 @@ public class ShakePt : MonoBehaviour
 
     float _point = 0;
 
-    Joycon _rightJoycon;
+    Joycon _joycon;
 
     SingleTaskCancellation _singleTaskCancellation=new();
 
@@ -34,8 +34,8 @@ public class ShakePt : MonoBehaviour
             //ポイントの初期化
             _point = 0;
 
-            //(右)コントローラーの取得
-            _rightJoycon = await JoyconHandler.GetRightJoyconAsync(ct);
+            //コントローラーの取得
+            _joycon = await JoyconHandler.GetJoyconAsync(ct,EJoyconSide.Any);
 
             //ポイント取得処理の開始
             GetPointAsync(ct).Forget();
@@ -65,10 +65,10 @@ public class ShakePt : MonoBehaviour
 
     void GetPoint()
     {
-        if (_rightJoycon == null) return;
+        if (_joycon == null) return;
 
         //加速度を取得
-        Vector3 accel = _rightJoycon.GetAccel();
+        Vector3 accel = _joycon.GetAccel();
 
         //加速度の大きさを計算
         float magnitudeAccel = accel.magnitude;
