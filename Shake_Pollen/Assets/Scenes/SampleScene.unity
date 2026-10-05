@@ -1568,9 +1568,9 @@ MonoBehaviour:
   _startCanvas: {fileID: 332954761}
   _countDownText: {fileID: 1691933162}
   _shakePt: {fileID: 2106922014}
-  _startText: Start!
+  _startText: "\u3075\u308C\uFF01\uFF01"
   _waitDurationToStartPlayCountDownSE: 0.1
-  _waitDurationFromStartGameToHideUI: 1
+  _waitDurationFromStartGameToHideUI: 1.5
 --- !u!82 &1233706304
 AudioSource:
   m_ObjectHideFlags: 0
