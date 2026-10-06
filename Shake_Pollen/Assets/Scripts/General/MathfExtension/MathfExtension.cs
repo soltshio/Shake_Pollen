@@ -125,6 +125,26 @@ public class MathfExtension
     }
 
     /// <summary>
+    /// min/max を正しくする(int型)
+    /// </summary>
+    public static void EnsureMinMax(ref int min, ref int max)
+    {
+        int a = min, b = max;
+        min = Mathf.Min(a, b);
+        max = Mathf.Max(a, b);
+    }
+
+    /// <summary>
+    /// min/max を正しくする(float型)
+    /// </summary>
+    public static void EnsureMinMax(ref float min, ref float max)
+    {
+        float a = min, b = max;
+        min = Mathf.Min(a, b);
+        max = Mathf.Max(a, b);
+    }
+
+    /// <summary>
     /// 値を別の範囲に線形補間して変換する
     /// </summary>
     /// <param name="value">変換する値</param>
@@ -136,5 +156,33 @@ public class MathfExtension
     public static float Remap(float value, float inMin, float inMax, float outMin, float outMax)
     {
         return Mathf.Lerp(outMin, outMax, Mathf.InverseLerp(inMin, inMax, value));
+    }
+
+    /// <summary>
+    /// min と max の間で三角波を生成する。
+    /// min/max に近いほど 0、中央に近いほど 1 を返す。
+    /// </summary>
+    public static float TriangleWave01(float value, float min, float max)
+    {
+        EnsureMinMax(ref min, ref max);
+
+        float halfRange = (max - min) * 0.5f;
+        float middle = min + halfRange;
+
+        return 1f - Mathf.Abs(value - middle) / halfRange;//変換式
+    }
+
+    /// <summary>
+    /// min と max の間で逆三角波を生成する。
+    /// min/max に近いほど 1、中央に近いほど 0 を返す。
+    /// </summary>
+    public static float InverseTriangleWave01(float value, float min, float max)
+    {
+        EnsureMinMax(ref min, ref max);
+
+        float halfRange = (max - min) * 0.5f;
+        float middle = min + halfRange;
+
+        return Mathf.Abs(value - middle) / halfRange;//変換式
     }
 }

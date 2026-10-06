@@ -17,13 +17,34 @@ public class ShakePt : MonoBehaviour
     [SerializeField]
     float _pointMagnification = 0.1f;
 
+    [SerializeField]
+    CedarShake _cedarShake;
+
+    [SerializeField]
+    PollenEffect _pollenEffect;
+
     float _point = 0;
 
     Joycon _joycon;
 
+
+    //加速度の移動平均
+    [Header("加速度の移動平均")]
+    
+    Vector3MovingAverage _vector3MovingAverage;
+    
+    [SerializeField]
+    int _movingAverageWindowSize = 20;
+
+
     SingleTaskCancellation _singleTaskCancellation=new();
 
     public float Point { get { return _point; } }
+
+    void Awake()
+    {
+        _vector3MovingAverage = new Vector3MovingAverage(_movingAverageWindowSize);
+    }
 
     async void OnEnable()
     {
@@ -70,10 +91,21 @@ public class ShakePt : MonoBehaviour
         //加速度を取得
         Vector3 accel = _joycon.GetAccel();
 
+        //加速度を移動平均
+        Vector3 maAccel = _vector3MovingAverage.AddValue(accel);
+
         //加速度の大きさを計算
-        float magnitudeAccel = accel.magnitude;
+        float magnitudeAccel = maAccel.magnitude;
 
         Debug.Log(magnitudeAccel);
+
+
+        //木の揺れに反映
+        _cedarShake.SetAmplitude(magnitudeAccel);
+
+        //花粉のパーティクル量に反映
+        _pollenEffect.SetAmplitude(magnitudeAccel);
+
 
         //加算ポイントを計算
         float addPoint = magnitudeAccel * _pointMagnification;
