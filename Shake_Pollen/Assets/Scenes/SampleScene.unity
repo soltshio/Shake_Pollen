@@ -926,6 +926,16 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!198 &346606102 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+  m_PrefabInstance: {fileID: 2142560573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &350448197 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2676502125532622454, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+  m_PrefabInstance: {fileID: 2142560573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,11 +2030,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322549015}
   m_CullTransparentMesh: 1
+--- !u!1 &1374362546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7851527540541044826, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+  m_PrefabInstance: {fileID: 2142560573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1503291832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
   m_PrefabInstance: {fileID: 2142560573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1503291833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374362546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07b67e58ac505647b42f3ccdde2fe88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PollenEffect
+  _pollenParticles:
+  - {fileID: 350448197}
+  - {fileID: 346606102}
+  _minAccelMagnitude: 1.2
+  _maxAccelMagnitude: 2
+  _minRateOverTime: 0
+  _maxRateOverTime: 100
 --- !u!1 &1565093739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,7 +2975,8 @@ MonoBehaviour:
   _pointText: {fileID: 1322549017}
   _getPointInterval: 0.1
   _pointMagnification: 0.1
-  _cedarShakeManager: {fileID: 323321879}
+  _cedarShake: {fileID: 323321879}
+  _pollenEffect: {fileID: 1503291833}
   _movingAverageWindowSize: 10
 --- !u!1 &2140661523
 GameObject:
@@ -3134,7 +3169,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7851527540541044826, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1503291833}
   m_SourcePrefab: {fileID: 100100000, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

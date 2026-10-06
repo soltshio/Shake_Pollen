@@ -2,7 +2,7 @@
 
 //杉の木の振動
 
-public class CedarShakeManager : MonoBehaviour
+public class CedarShake : MonoBehaviour
 {
     [SerializeField]
     Transform _cedarTrs;
@@ -35,6 +35,8 @@ public class CedarShakeManager : MonoBehaviour
     public void SetAmplitude(float currentAccelMagnitude)
     {
         _amplitude = MathfExtension.Remap(currentAccelMagnitude, _minAccelMagnitude, _maxAccelMagnitude, _minAmplitude, _maxAmplitude);
+
+        _amplitude = Mathf.Clamp(_amplitude, _minAmplitude, _maxAmplitude);
     }
 
     void Start()

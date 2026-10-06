@@ -18,7 +18,10 @@ public class ShakePt : MonoBehaviour
     float _pointMagnification = 0.1f;
 
     [SerializeField]
-    CedarShakeManager _cedarShakeManager;
+    CedarShake _cedarShake;
+
+    [SerializeField]
+    PollenEffect _pollenEffect;
 
     float _point = 0;
 
@@ -96,8 +99,13 @@ public class ShakePt : MonoBehaviour
 
         Debug.Log(magnitudeAccel);
 
+
         //木の揺れに反映
-        _cedarShakeManager.SetAmplitude(magnitudeAccel);
+        _cedarShake.SetAmplitude(magnitudeAccel);
+
+        //花粉のパーティクル量に反映
+        _pollenEffect.SetAmplitude(magnitudeAccel);
+
 
         //加算ポイントを計算
         float addPoint = magnitudeAccel * _pointMagnification;
