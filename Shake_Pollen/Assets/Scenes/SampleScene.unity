@@ -585,6 +585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 323321878}
   - component: {fileID: 323321877}
+  - component: {fileID: 323321879}
   m_Layer: 0
   m_Name: Cedar
   m_TagString: Untagged
@@ -660,12 +661,31 @@ Transform:
   m_GameObject: {fileID: 323321876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.72, z: -9.41}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_LocalPosition: {x: 0, y: 0.72, z: -8.73}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1503291832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323321879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323321876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d8c81a1edd8214e88e13211ef93d23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CedarShakeManager
+  _cedarTrs: {fileID: 323321878}
+  _interval: 0.25
+  _minAccelMagnitude: 1.2
+  _maxAccelMagnitude: 2
+  _minAmplitude: 0
+  _maxAmplitude: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2020,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322549015}
   m_CullTransparentMesh: 1
+--- !u!4 &1503291832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+  m_PrefabInstance: {fileID: 2142560573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1565093739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2614,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fe3ba998236f8774bab3669dadf75182, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2916,6 +2941,8 @@ MonoBehaviour:
   _pointText: {fileID: 1322549017}
   _getPointInterval: 0.1
   _pointMagnification: 0.1
+  _cedarShakeManager: {fileID: 323321879}
+  _movingAverageWindowSize: 10
 --- !u!1 &2140661523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3026,31 +3053,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 323321878}
     m_Modifications:
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.7142857
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.7142857
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.7142857
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03084
+      value: -0.022028571
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.91428566
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.52343
+      value: -0.5667359
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3058,15 +3085,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3083,6 +3110,22 @@ PrefabInstance:
     - target: {fileID: 1811357345269136759, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676502125532622454, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676502125532622454, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7851527540541044826, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_Name
@@ -3103,6 +3146,5 @@ SceneRoots:
   - {fileID: 1804955757}
   - {fileID: 97189044}
   - {fileID: 678041041}
-  - {fileID: 2142560573}
   - {fileID: 323321878}
   - {fileID: 1986002934}
