@@ -42,7 +42,7 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
 
         _cedarShake.enabled = false;
 
-        _scoreText.text = _shakePt.Point.ToString("0");
+        _scoreText.text = _shakePt.Point.ToString("0")+"kg";
     }
 
     public override void OnUpdate(GamePhaseStateMachine stateMachine)

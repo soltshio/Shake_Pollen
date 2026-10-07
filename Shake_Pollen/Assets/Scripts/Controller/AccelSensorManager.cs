@@ -66,5 +66,7 @@ public class AccelSensorManager : MonoBehaviour
 
         _accel = smoothedAccel;
         _accelMagnitude = accel.magnitude;
+
+        Debug.Log($"AccelMagnitude: {_accelMagnitude}");
     }
 }
