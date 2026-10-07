@@ -497,7 +497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:'
+  m_text: "\u82B1\u7C89\u91CF"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -627,7 +627,7 @@ MonoBehaviour:
   _accelSensorManager: {fileID: 1862612702}
   _interval: 0.25
   _minAccelMagnitude: 1.2
-  _maxAccelMagnitude: 2
+  _maxAccelMagnitude: 5
   _minAmplitude: 0
   _maxAmplitude: 2
 --- !u!1 &330585543
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:'
+  m_text: "\u82B1\u7C89\u91CF"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -1718,7 +1718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 722.3, y: 441.7}
+  m_AnchoredPosition: {x: 528.1, y: 441.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1233706301
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00000
+  m_text: 00000000000kg
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -2286,8 +2286,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 114.5
-  m_fontSizeBase: 114.5
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2532,9 +2532,9 @@ MonoBehaviour:
   - {fileID: 346606102}
   _accelSensorManager: {fileID: 1862612702}
   _minAccelMagnitude: 1.2
-  _maxAccelMagnitude: 2
+  _maxAccelMagnitude: 5
   _minRateOverTime: 0
-  _maxRateOverTime: 100
+  _maxRateOverTime: 150
 --- !u!1 &1530908056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565093740}
   - component: {fileID: 1565093741}
+  - component: {fileID: 1565093742}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2615,6 +2616,20 @@ MonoBehaviour:
   _startCanvas: {fileID: 332954761}
   _inGameCanvas: {fileID: 1240047693}
   _finishCanvas: {fileID: 2140661527}
+--- !u!114 &1565093742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565093739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82debc83cfb21c845bf97e7e7b4d0ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreUIManager
+  _pointText: {fileID: 1322549017}
+  _shakePtManager: {fileID: 2106922014}
 --- !u!1 &1687033544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,7 +2877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00000
+  m_text: 00000000000kg
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -2889,8 +2904,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 114.5
-  m_fontSizeBase: 114.5
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3099,7 +3114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1a9fdfbbe5abc4e844eed2c710a8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AccelSensorManager
-  _movingAverageWindowSize: 20
+  _movingAverageWindowSize: 40
 --- !u!4 &1862612703
 Transform:
   m_ObjectHideFlags: 0
@@ -3404,7 +3419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 725.5, y: 47.9}
+  m_AnchoredPosition: {x: 528.1, y: 47.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2067706207
@@ -3547,10 +3562,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507276be4bc4dd74ead590137355b4a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShakePt
-  _pointText: {fileID: 1322549017}
   _accelSensorManager: {fileID: 1862612702}
+  _timer: {fileID: 571524276}
   _getPointInterval: 0.1
-  _pointMagnification: 0.1
+  _minAccelMagnitude: 1.2
+  _maxAccelMagnitude: 9
+  _minPoint: 0
+  _maxPoint: 5000
+  _minPointMagnification: 1
+  _maxPointMagnification: 3
 --- !u!1 &2140661523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,7 +3741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2676502125532622454, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 120
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2676502125532622454, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -3733,7 +3753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 120
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar

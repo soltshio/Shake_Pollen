@@ -17,6 +17,8 @@ public class Timer : MonoBehaviour
     public float RemainingTime { get { return _remainingTime; } }
     public bool IsPlaying { get { return _isRunning; } }
 
+    public float Progress { get { return Mathf.InverseLerp(_setUpTime, 0, _remainingTime); } }//残り時間の進捗度（残り０秒に近づくほど進捗度が1に近づく）
+
     public void Initialize()
     {
         _isRunning = false;
