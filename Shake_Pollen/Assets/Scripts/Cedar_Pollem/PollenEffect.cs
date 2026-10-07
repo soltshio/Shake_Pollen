@@ -7,6 +7,9 @@ public class PollenEffect : MonoBehaviour
     [SerializeField]
     ParticleSystem[] _pollenParticles;
 
+    [SerializeField]
+    AccelSensorManager _accelSensorManager;
+
     [Header("加速度による花粉パーティクル量の変化")]
 
     [SerializeField]
@@ -21,12 +24,15 @@ public class PollenEffect : MonoBehaviour
     [SerializeField]
     float _maxRateOverTime;
 
-    public void SetAmplitude(float currentAccelMagnitude)
+    private void Update()
+    {
+        SetPollenParticleAmount(_accelSensorManager.AccelMagnitude);
+    }
+
+    void SetPollenParticleAmount(float currentAccelMagnitude)
     {
         float rateOverTime = MathfExtension.Remap(currentAccelMagnitude, _minAccelMagnitude, _maxAccelMagnitude, _minRateOverTime, _maxRateOverTime);
         rateOverTime = Mathf.Clamp(rateOverTime, _minRateOverTime, _maxRateOverTime);
-
-        Debug.Log("rateOverTime:" + rateOverTime);
 
         SetRateOverTime(rateOverTime);
     }

@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using System;
 using UnityEngine;
 
 public class AccelSensorManager : MonoBehaviour
@@ -10,9 +9,12 @@ public class AccelSensorManager : MonoBehaviour
     Vector3MovingAverage _vector3MovingAverage;
 
     Joycon _joycon;
+    
     Vector3 _accel;
+    float _accelMagnitude;
 
     public Vector3 Accel { get { return _accel; } }
+    public float AccelMagnitude { get { return _accelMagnitude; } }
 
     void Awake()
     {
@@ -40,5 +42,6 @@ public class AccelSensorManager : MonoBehaviour
         Vector3 smoothedAccel = _vector3MovingAverage.AddValue(accel);
 
         _accel = smoothedAccel;
+        _accelMagnitude = accel.magnitude;
     }
 }

@@ -21,6 +21,9 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     ShakePtManager _shakePt;
 
     [SerializeField]
+    PollenEffect _pollenEffect;
+
+    [SerializeField]
     string _startText = "Start!";
 
     [Tooltip("カウントダウンのSEを流すまでに遅延させる時間")] [SerializeField]
@@ -35,7 +38,9 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _startCanvas.enabled = true;
+
         _shakePt.enabled = false;
+        _pollenEffect.enabled = false;
 
         CountDownAsync(this.GetCancellationTokenOnDestroy(),stateMachine).Forget();
     }

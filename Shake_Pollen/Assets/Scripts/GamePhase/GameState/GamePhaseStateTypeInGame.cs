@@ -18,6 +18,9 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     [SerializeField]
     ShakePtManager _shakePt;
 
+    [SerializeField]
+    PollenEffect _pollenEffect;
+
     GamePhaseStateMachine _stateMachine;
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
@@ -26,7 +29,9 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
 
         _inGameCanvas.enabled = true;
 
+        //振った時にポイントが入り、花粉が出るようにする
         _shakePt.enabled = true;
+        _pollenEffect.enabled = true;
 
         //タイマー開始
         _timer.Initialize();
@@ -43,7 +48,9 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     {
         _inGameCanvas.enabled = false;
 
+        //振ってもポイントが入らず、花粉が出ないようにする
         _shakePt.enabled = false;
+        _pollenEffect.enabled = false;
     }
 
     void ChangeStateToFinishScene()

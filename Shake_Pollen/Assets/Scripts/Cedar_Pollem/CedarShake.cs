@@ -8,6 +8,9 @@ public class CedarShake : MonoBehaviour
     Transform _cedarTrs;
 
     [SerializeField]
+    AccelSensorManager _accelSensorManager;
+
+    [SerializeField]
     float _interval = 0.5f;
 
     [Header("加速度による振り幅の変化")]
@@ -32,7 +35,24 @@ public class CedarShake : MonoBehaviour
 
     public float Amplitude { get => _amplitude; }
 
-    public void SetAmplitude(float currentAccelMagnitude)
+    private void Update()
+    {
+        SetAmplitude(_accelSensorManager.Accel.magnitude);
+
+        if (_amplitude <= 0) return;//振れ幅が無いなら揺らさなくてよい
+
+        _time += Time.deltaTime;
+        _time %= _interval;
+
+        float xPosRate = MathfExtension.TriangleWave01(_time, 0, _interval);
+        float xPos = Mathf.Lerp(-_amplitude, _amplitude, xPosRate);
+
+        Vector3 currentPos = _cedarTrs.position;
+        currentPos.x = xPos;
+        _cedarTrs.position = currentPos;
+    }
+
+    void SetAmplitude(float currentAccelMagnitude)
     {
         _amplitude = MathfExtension.Remap(currentAccelMagnitude, _minAccelMagnitude, _maxAccelMagnitude, _minAmplitude, _maxAmplitude);
 
@@ -44,20 +64,5 @@ public class CedarShake : MonoBehaviour
         _amplitude = 0f;
 
         _time += _timeRateOffset * _interval;
-    }
-
-    void Update()
-    {
-        if (_amplitude <= 0) return;//振れ幅が無いなら揺らさなくてよい
-
-        _time += Time.deltaTime;
-        _time %= _interval;
-
-        float xPosRate = MathfExtension.TriangleWave01(_time,0,_interval);
-        float xPos = Mathf.Lerp(-_amplitude, _amplitude, xPosRate);
-        
-        Vector3 currentPos = _cedarTrs.position;
-        currentPos.x = xPos;
-        _cedarTrs.position = currentPos;
     }
 }
