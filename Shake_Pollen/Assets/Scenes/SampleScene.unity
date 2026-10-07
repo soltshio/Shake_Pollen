@@ -2668,7 +2668,6 @@ MonoBehaviour:
   _waitDurationFromStartGameToUpUIAlpha: 1.5
   _offUIAlpha: 0.3
   _onUIAlpha: 1
-  _playerInput: {fileID: 1862612704}
 --- !u!1 &1691933160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,7 +3233,19 @@ MonoBehaviour:
     m_ActionId: 775a03f2-5d37-47c9-bb94-6745f142cac3
     m_ActionName: Demo/New action
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1862612702}
+        m_TargetAssemblyTypeName: AccelSensorManager, Assembly-CSharp
+        m_MethodName: GetKeyInputAsAccelSensor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ef3a7ab4-ccfa-4b9a-a4dc-542634c52b3e
     m_ActionName: InGame/New action
   - m_PersistentCalls:

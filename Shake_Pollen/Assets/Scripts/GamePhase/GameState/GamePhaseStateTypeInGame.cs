@@ -37,9 +37,6 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     [SerializeField]
     float _onUIAlpha = 1f;
 
-    [SerializeField]
-    PlayerInput _playerInput;
-
     GamePhaseStateMachine _stateMachine;
 
     private void Start()
@@ -50,8 +47,6 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _stateMachine = stateMachine;
-
-        _playerInput.SwitchCurrentActionMap(ActionMapNameList.inGame);
 
         ShowUIAsync(this.GetCancellationTokenOnDestroy()).Forget();
 
