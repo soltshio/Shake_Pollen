@@ -1880,6 +1880,7 @@ GameObject:
   - component: {fileID: 1240047693}
   - component: {fileID: 1240047692}
   - component: {fileID: 1240047691}
+  - component: {fileID: 1240047694}
   m_Layer: 5
   m_Name: InGameUICanvas
   m_TagString: Untagged
@@ -1972,6 +1973,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1240047694
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240047689}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1240093030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,10 +2655,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GamePhaseStateTypeInGame
   _inGameCanvas: {fileID: 1240047693}
+  _canvasGroup: {fileID: 1240047694}
   _timerText: {fileID: 643209802}
   _timer: {fileID: 571524276}
   _shakePt: {fileID: 2106922014}
   _pollenEffect: {fileID: 1503291833}
+  _waitDurationFromStartGameToUpUIAlpha: 1.5
+  _offUIAlpha: 0.3
+  _onUIAlpha: 1
 --- !u!1 &1691933160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,7 +3353,7 @@ MonoBehaviour:
       value: {fileID: 1687033546}
     - key: 1
       value: {fileID: 82978562}
-  _initialState: 2
+  _initialState: 0
 --- !u!1 &2106922012
 GameObject:
   m_ObjectHideFlags: 0
