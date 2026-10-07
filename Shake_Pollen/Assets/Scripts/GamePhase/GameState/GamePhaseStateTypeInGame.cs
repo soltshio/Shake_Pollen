@@ -23,6 +23,11 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
 
     GamePhaseStateMachine _stateMachine;
 
+    private void Start()
+    {
+        _inGameCanvas.enabled = false;
+    }
+
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _stateMachine = stateMachine;

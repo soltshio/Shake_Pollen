@@ -24,6 +24,11 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     [SerializeField]
     CedarShake _cedarShake;
 
+    void Start()
+    {
+        _finishCanvas.enabled = false;
+    }
+
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _audioSource.PlayOneShot(_finishSE);

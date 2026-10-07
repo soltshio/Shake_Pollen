@@ -18,12 +18,6 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     TextMeshProUGUI _countDownText;
 
     [SerializeField]
-    ShakePtManager _shakePt;
-
-    [SerializeField]
-    PollenEffect _pollenEffect;
-
-    [SerializeField]
     string _startText = "Start!";
 
     [Tooltip("カウントダウンのSEを流すまでに遅延させる時間")] [SerializeField]
@@ -35,12 +29,14 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     const int _countDownTime = 3;//カウントダウンで数える秒数
     const float _countDownInterval = 1f;
 
+    void Start()
+    {
+        _startCanvas.enabled = false;
+    }
+
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _startCanvas.enabled = true;
-
-        _shakePt.enabled = false;
-        _pollenEffect.enabled = false;
 
         CountDownAsync(this.GetCancellationTokenOnDestroy(),stateMachine).Forget();
     }
