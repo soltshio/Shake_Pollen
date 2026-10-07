@@ -24,6 +24,22 @@ public class PollenEffect : MonoBehaviour
     [SerializeField]
     float _maxRateOverTime;
 
+    void OnEnable()
+    {
+        foreach (ParticleSystem pollenParticle in _pollenParticles)
+        {
+            pollenParticle.Play();
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (ParticleSystem pollenParticle in _pollenParticles)
+        {
+            pollenParticle.Stop();
+        }
+    }
+
     private void Update()
     {
         SetPollenParticleAmount(_accelSensorManager.AccelMagnitude);

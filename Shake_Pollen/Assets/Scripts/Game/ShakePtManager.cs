@@ -26,22 +26,15 @@ public class ShakePtManager : MonoBehaviour
 
     public float Point { get { return _point; } }
 
-    async void OnEnable()
+    void OnEnable()
     {
         var ct = _singleTaskCancellation.CancelAndReCreateToken(this.GetCancellationTokenOnDestroy());
 
-        try
-        {
-            //ポイントの初期化
-            _point = 0;
+        //ポイントの初期化
+        _point = 0;
 
-            //ポイント取得処理の開始
-            GetPointAsync(ct).Forget();
-        }
-        catch (OperationCanceledException)
-        {
-
-        }
+        //ポイント取得処理の開始
+        GetPointAsync(ct).Forget();
     }
 
     void OnDisable()

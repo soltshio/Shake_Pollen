@@ -21,10 +21,16 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     [SerializeField]
     ShakePtManager _shakePt;
 
+    [SerializeField]
+    CedarShake _cedarShake;
+
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _audioSource.PlayOneShot(_finishSE);
         _finishCanvas.enabled = true;
+
+        _cedarShake.enabled = false;
+
         _scoreText.text = _shakePt.Point.ToString("0");
     }
 

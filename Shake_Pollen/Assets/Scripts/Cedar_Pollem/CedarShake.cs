@@ -59,10 +59,24 @@ public class CedarShake : MonoBehaviour
         _amplitude = Mathf.Clamp(_amplitude, _minAmplitude, _maxAmplitude);
     }
 
-    void Start()
+    void OnEnable()
     {
+        SetZeroPos();//中心に戻す
+
         _amplitude = 0f;
 
-        _time += _timeRateOffset * _interval;
+        _time = _timeRateOffset * _interval;
+    }
+
+    private void OnDisable()
+    {
+        SetZeroPos();//中心に戻す
+    }
+
+    void SetZeroPos()
+    {
+        Vector3 currentPos = _cedarTrs.position;
+        currentPos.x = 0;
+        _cedarTrs.position = currentPos;
     }
 }
