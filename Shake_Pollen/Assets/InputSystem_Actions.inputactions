@@ -1075,6 +1075,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UnControllable",
+            "id": "a255fb56-6789-4a29-b6ce-b5425689aacd",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [

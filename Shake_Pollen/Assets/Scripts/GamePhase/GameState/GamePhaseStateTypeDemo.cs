@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using System.Threading;
+using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 //デモシーン
 
@@ -13,6 +17,18 @@ public class GamePhaseStateTypeDemo : GamePhaseStateTypeBase
     [SerializeField]
     PollenEffect _pollenEffect;
 
+    [SerializeField]
+    PlayerInput _playerInput;
+
+    GamePhaseStateMachine _stateMachine;
+
+    public void GetInputGameStart(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        _stateMachine.ChangeState(EGamePhaseState.Countdown);
+    }
+
     void Start()
     {
         _demoCanvas.enabled = false;
@@ -24,6 +40,10 @@ public class GamePhaseStateTypeDemo : GamePhaseStateTypeBase
         _pollenEffect.enabled = false;
 
         _demoCanvas.enabled = true;
+
+        _playerInput.SwitchCurrentActionMap(ActionMapNameList.demo);
+
+        _stateMachine = stateMachine;
     }
 
     public override void OnUpdate(GamePhaseStateMachine stateMachine)
@@ -33,6 +53,6 @@ public class GamePhaseStateTypeDemo : GamePhaseStateTypeBase
 
     public override void OnExit(GamePhaseStateMachine stateMachine)
     {
-        
+        _demoCanvas.enabled = false;
     }
 }

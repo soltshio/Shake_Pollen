@@ -2,7 +2,9 @@
 using System;
 using System.Threading;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //カウントダウン時のフェーズ
 
@@ -26,6 +28,20 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     [Tooltip("ゲーム開始してから何秒で開始のUIを隠すか")] [SerializeField]
     float _waitDurationFromStartGameToHideUI = 1f;
 
+    [SerializeField]
+    PlayerInput _playerInput;
+
+    [Header("カメラ関係")]
+
+    [SerializeField]
+    CinemachineCamera _demoCamera;
+
+    [SerializeField]
+    CinemachineCamera _inGameCamera;
+
+    [SerializeField]
+    float _waitDurationCameraFade = 1.5f;
+
     const int _countDownTime = 3;//カウントダウンで数える秒数
     const float _countDownInterval = 1f;
 
@@ -36,7 +52,7 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
-        _startCanvas.enabled = true;
+        _playerInput.SwitchCurrentActionMap(ActionMapNameList.unControllable);
 
         CountDownAsync(this.GetCancellationTokenOnDestroy(),stateMachine).Forget();
     }
@@ -53,7 +69,16 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
 
     async UniTask CountDownAsync(CancellationToken ct, GamePhaseStateMachine stateMachine)
     {
-        PlayCountDownSEAsync(ct).Forget();
+        //カメラを引きから寄せる
+        _demoCamera.enabled = false;
+        _inGameCamera.enabled = true;
+
+        await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationCameraFade), cancellationToken: ct);
+
+        //少し待ってからカウントダウン開始
+        _startCanvas.enabled = true;//カウントダウン開始のタイミングでカウントダウンUIを表示する
+
+        DelayPlayCountDownSEAsync(ct).Forget();
 
         //カウントダウン時のUI更新
         for (int i = _countDownTime; i > 0 ; i--)
@@ -71,7 +96,7 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
         stateMachine.ChangeState(EGamePhaseState.Game_InGameScene);
     }
 
-    async UniTask PlayCountDownSEAsync(CancellationToken ct)
+    async UniTask DelayPlayCountDownSEAsync(CancellationToken ct)
     {
         //少し待ってから効果音を鳴らし始める
         await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationToStartPlayCountDownSE), cancellationToken: ct);
