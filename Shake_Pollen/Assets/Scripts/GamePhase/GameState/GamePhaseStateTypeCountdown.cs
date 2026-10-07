@@ -4,9 +4,9 @@ using System.Threading;
 using TMPro;
 using UnityEngine;
 
-//ゲーム開始時のフェーズ
+//カウントダウン時のフェーズ
 
-public class GamePhaseStateTypeStart : GamePhaseStateTypeBase
+public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
 {
     [SerializeField]
     AudioSource _countDownAudioSource;
@@ -18,7 +18,7 @@ public class GamePhaseStateTypeStart : GamePhaseStateTypeBase
     TextMeshProUGUI _countDownText;
 
     [SerializeField]
-    ShakePt _shakePt;
+    ShakePtManager _shakePt;
 
     [SerializeField]
     string _startText = "Start!";

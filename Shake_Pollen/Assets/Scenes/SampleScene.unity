@@ -1652,7 +1652,7 @@ GameObject:
   - component: {fileID: 1233706303}
   - component: {fileID: 1233706304}
   m_Layer: 0
-  m_Name: Start
+  m_Name: Countdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2923,7 +2923,7 @@ MonoBehaviour:
     _list:
     - key: 0
       value: {fileID: 1233706303}
-    - key: 2
+    - key: 1000
       value: {fileID: 1687033546}
     - key: 1
       value: {fileID: 82978562}

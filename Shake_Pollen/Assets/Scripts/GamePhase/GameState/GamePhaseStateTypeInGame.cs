@@ -16,7 +16,7 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     Timer _timer;
 
     [SerializeField]
-    ShakePt _shakePt;
+    ShakePtManager _shakePt;
 
     GamePhaseStateMachine _stateMachine;
 

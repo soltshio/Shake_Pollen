@@ -19,7 +19,7 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     TextMeshProUGUI _scoreText;
 
     [SerializeField]
-    ShakePt _shakePt;
+    ShakePtManager _shakePt;
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
