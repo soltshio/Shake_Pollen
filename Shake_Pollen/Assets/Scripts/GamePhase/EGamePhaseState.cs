@@ -6,9 +6,10 @@ public enum EGamePhaseState
     None = -1,//エラー
 
     //☆どのシーンでも共通に使用可能
-    Start,//開始
+    Countdown=0,//カウントダウン
     Finish,//終了時
+    Demo,//デモシーン
 
     //☆インゲームシーン限定
-    Game_InGameScene,//ゲーム中
+    Game_InGameScene=1000,//ゲーム中
 }
