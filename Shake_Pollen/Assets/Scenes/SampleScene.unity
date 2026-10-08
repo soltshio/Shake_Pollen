@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: e2341a9d03e86ec4290c72b1e22bbc7c, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 72deae4d18418f94688abef8e8483df0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -185,8 +185,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -282,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 6.07
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -383,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 6.07
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -451,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1090,7 +1090,7 @@ Canvas:
   m_GameObject: {fileID: 332954757}
   m_Enabled: 0
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 330585545}
   m_PlaneDistance: 0.302
   m_PixelPerfect: 0
@@ -1353,8 +1353,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 1
+    Enabled: 0
     m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 2
@@ -1661,9 +1661,9 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788166219}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 330585545}
   m_PlaneDistance: 0.302
   m_PixelPerfect: 0
@@ -1704,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 6.07
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1772,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1991,7 +1991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 6.07
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2059,7 +2059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2480,9 +2480,9 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240047689}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 330585545}
   m_PlaneDistance: 0.302
   m_PixelPerfect: 0
@@ -3176,7 +3176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 6.07
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3244,7 +3244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4348,7 +4348,7 @@ Canvas:
   m_GameObject: {fileID: 2140661523}
   m_Enabled: 0
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 330585545}
   m_PlaneDistance: 0.302
   m_PixelPerfect: 0
