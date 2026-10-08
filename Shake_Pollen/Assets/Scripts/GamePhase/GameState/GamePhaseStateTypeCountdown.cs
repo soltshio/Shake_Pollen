@@ -20,6 +20,9 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     TextMeshProUGUI _countDownText;
 
     [SerializeField]
+    AudioSource _demoBGMSource;
+
+    [SerializeField]
     string _startText = "Start!";
 
     [Tooltip("カウントダウンのSEを流すまでに遅延させる時間")] [SerializeField]
@@ -48,11 +51,16 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     void Start()
     {
         _startCanvas.enabled = false;
+
+        _demoCamera.enabled = true;
+        _inGameCamera.enabled = false;
     }
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _playerInput.SwitchCurrentActionMap(ActionMapNameList.unControllable);
+
+        _demoBGMSource.Stop();//デモBGMを止める
 
         CountDownAsync(this.GetCancellationTokenOnDestroy(),stateMachine).Forget();
     }

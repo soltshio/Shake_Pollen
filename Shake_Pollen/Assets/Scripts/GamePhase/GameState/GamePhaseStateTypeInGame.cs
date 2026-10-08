@@ -28,6 +28,8 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     [SerializeField]
     PollenEffect _pollenEffect;
 
+    [Header("UI関係")]
+
     [Tooltip("ゲーム開始してから何秒でUIの透明度を上げるか")] [SerializeField]
     float _waitDurationFromStartGameToUpUIAlpha = 1f;
 
@@ -36,6 +38,11 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
 
     [SerializeField]
     float _onUIAlpha = 1f;
+
+    [Header("BGM関係")]
+
+    [SerializeField]
+    AudioSource _inGameBGMSource;
 
     GamePhaseStateMachine _stateMachine;
 
@@ -49,6 +56,8 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
         _stateMachine = stateMachine;
 
         ShowUIAsync(this.GetCancellationTokenOnDestroy()).Forget();
+
+        _inGameBGMSource.Play();//ゲーム中のBGMを再生
 
         //振った時にポイントが入り、花粉が出るようにする
         _shakePt.enabled = true;
@@ -68,6 +77,8 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     public override void OnExit(GamePhaseStateMachine stateMachine)
     {
         _inGameCanvas.enabled = false;
+
+        _inGameBGMSource.Stop();//ゲーム中のBGMを停止
 
         //振ってもポイントが入らず、花粉が出ないようにする
         _shakePt.enabled = false;
