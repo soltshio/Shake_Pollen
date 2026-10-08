@@ -37,7 +37,7 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
     CinemachineCamera _demoCamera;
 
     [SerializeField]
-    CinemachineCamera _inGameCamera;
+    CinemachineMixingCamera _inGameCamera;
 
     [SerializeField]
     float _waitDurationCameraFade = 1.5f;
