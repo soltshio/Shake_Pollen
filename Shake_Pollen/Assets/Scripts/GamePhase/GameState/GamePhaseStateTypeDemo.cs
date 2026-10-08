@@ -20,6 +20,9 @@ public class GamePhaseStateTypeDemo : GamePhaseStateTypeBase
     [SerializeField]
     PlayerInput _playerInput;
 
+    [SerializeField]
+    AudioSource _demoBGMSource;
+
     GamePhaseStateMachine _stateMachine;
 
     public void GetInputGameStart(InputAction.CallbackContext context)
@@ -40,6 +43,8 @@ public class GamePhaseStateTypeDemo : GamePhaseStateTypeBase
         _pollenEffect.enabled = false;
 
         _demoCanvas.enabled = true;
+
+        _demoBGMSource.Play();//デモBGMを流す
 
         _playerInput.SwitchCurrentActionMap(ActionMapNameList.demo);
 
