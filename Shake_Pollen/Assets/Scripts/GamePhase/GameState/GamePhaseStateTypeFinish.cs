@@ -28,6 +28,9 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     [SerializeField]
     PlayerInput _playerInput;
 
+    [SerializeField]
+    FeverTime _feverTime;
+
     void Start()
     {
         _finishCanvas.enabled = false;
@@ -37,11 +40,13 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     {
         _playerInput.SwitchCurrentActionMap(ActionMapNameList.finish);
 
-        _audioSource.PlayOneShot(_finishSE);
-        _finishCanvas.enabled = true;
-
         _cedarShake.enabled = false;
 
+        _feverTime.StopFever();
+
+        //スコア表示
+        _audioSource.PlayOneShot(_finishSE);
+        _finishCanvas.enabled = true;
         _scoreText.text = _shakePt.Point.ToString("0")+"kg";
     }
 
