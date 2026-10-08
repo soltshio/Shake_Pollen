@@ -718,7 +718,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3.7799997}
+  m_LocalPosition: {x: 0, y: 1, z: -20.529999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1754,6 +1754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightEff
       objectReference: {fileID: 0}
+    - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1987,7 +1991,7 @@ MonoBehaviour:
   _playerInput: {fileID: 1862612704}
   _demoCamera: {fileID: 1341194434}
   _inGameCamera: {fileID: 1240093032}
-  _waitDurationCameraFade: 1.5
+  _waitDurationCameraFade: 3.5
 --- !u!82 &1233706304
 AudioSource:
   m_ObjectHideFlags: 0
