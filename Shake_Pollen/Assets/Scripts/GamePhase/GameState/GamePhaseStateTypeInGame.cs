@@ -78,8 +78,6 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     {
         _inGameCanvas.enabled = false;
 
-        _inGameBGMSource.Stop();//ゲーム中のBGMを停止
-
         //振ってもポイントが入らず、花粉が出ないようにする
         _shakePt.enabled = false;
         _pollenEffect.enabled = false;
