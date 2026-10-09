@@ -23,12 +23,4 @@ public class ActionMapInitializer : MonoBehaviour
 
         OnCompleteInit?.Invoke();
     }
-
-    private void Update()
-    {
-        foreach (var map in playerInput.actions.actionMaps)
-        {
-            Debug.Log($"{map.name}: {map.enabled}");
-        }
-    }
 }
