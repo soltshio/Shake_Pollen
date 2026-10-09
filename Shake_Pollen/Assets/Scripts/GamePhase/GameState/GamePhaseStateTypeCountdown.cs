@@ -50,8 +50,6 @@ public class GamePhaseStateTypeCountdown : GamePhaseStateTypeBase
 
     void Start()
     {
-        _startCanvas.enabled = false;
-
         _demoCamera.enabled = true;
         _inGameCamera.enabled = false;
     }

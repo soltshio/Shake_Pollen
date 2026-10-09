@@ -31,11 +31,6 @@ public class GamePhaseStateTypeDemo : GamePhaseStateTypeBase
 
         _stateMachine.ChangeState(EGamePhaseState.Countdown);
     }
-
-    void Start()
-    {
-        _demoCanvas.enabled = false;
-    }
     
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {

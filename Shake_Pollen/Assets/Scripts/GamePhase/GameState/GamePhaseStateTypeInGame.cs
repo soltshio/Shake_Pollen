@@ -15,18 +15,18 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
     CanvasGroup _canvasGroup;
 
     [SerializeField]
-    TextMeshProUGUI _timerText;
-
-    [SerializeField]
-    Timer _timer;
-
-    [SerializeField]
     ShakePtManager _shakePt;
 
     [SerializeField]
     PollenEffect _pollenEffect;
 
-    [Header("UI関係")]
+    [SerializeField]
+    Timer _timer;
+
+    [SerializeField]
+    InGameUIManager _inGameUIManager;
+
+    [Header("UIの表示関係")]
 
     [Tooltip("ゲーム開始してから何秒でUIの透明度を上げるか")] [SerializeField]
     float _waitDurationFromStartGameToUpUIAlpha = 1f;
@@ -44,9 +44,9 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
 
     GamePhaseStateMachine _stateMachine;
 
-    private void Start()
+    void Awake()
     {
-        _inGameCanvas.enabled = false;
+        _inGameUIManager.Init(_timer);
     }
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
@@ -69,7 +69,7 @@ public class GamePhaseStateTypeInGame : GamePhaseStateTypeBase
 
     public override void OnUpdate(GamePhaseStateMachine stateMachine)
     {
-        _timerText.text = _timer.RemainingTime.ToString("0");
+        _inGameUIManager.UpdateTimerText();
     }
 
     public override void OnExit(GamePhaseStateMachine stateMachine)
