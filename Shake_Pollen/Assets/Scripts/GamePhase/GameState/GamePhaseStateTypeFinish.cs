@@ -42,11 +42,6 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     [SerializeField]
     FeverTime _feverTime;
 
-    void Start()
-    {
-        _finishCanvas.enabled = false;
-    }
-
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
         _playerInput.SwitchCurrentActionMap(ActionMapNameList.finish);
