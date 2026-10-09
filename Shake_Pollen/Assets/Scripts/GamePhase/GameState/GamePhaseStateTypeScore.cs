@@ -65,7 +65,7 @@ public class GamePhaseStateTypeScore : GamePhaseStateTypeBase
 
         //スコア表示
         _scoreCanvas.enabled = true;
-        _scoreText.text = _shakePt.Point.ToString("0") + "kg";
+        _scoreText.text = _shakePt.Point.ToString("0") + "トン";
 
         //空を花粉色に変える
         _skyMat.SetColor(SkyTintID, _pollenSkyColor);
