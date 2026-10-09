@@ -23,12 +23,21 @@ public class FeverTime : MonoBehaviour
     [SerializeField]
     private ScriptableRendererFeature _rainbowEffect;
 
-    bool _isFever = false;
+    [Header("SkyBox関係")]
+
+    [SerializeField] 
+    private Material _skyboxMaterial;
+
+    [SerializeField]
+    Color _normalColor;
+
+    [SerializeField]
+    Color _feverColor;
+
+    private static readonly int SkyTintID = Shader.PropertyToID("_Tint");
 
     public void StopFever()
     {
-        if (!_isFever) return;
-
         //最初は照明を消灯しておく
         for (int i = 0; i < _lights.Length; i++)
         {
@@ -38,8 +47,8 @@ public class FeverTime : MonoBehaviour
         //最初は画面の周りのビカビカを消しておく
         _rainbowEffect.SetActive(false);
 
-
-        _isFever = false;
+        //空の色を元に戻す
+        _skyboxMaterial.SetColor(SkyTintID, _normalColor);
     }
 
     void OnEnable()
@@ -54,14 +63,7 @@ public class FeverTime : MonoBehaviour
 
     void Start()
     {
-        //最初は照明を消灯しておく
-        for (int i = 0; i < _lights.Length; i++)
-        {
-            _lights[i].gameObject.SetActive(false);
-        }
-
-        //最初は画面の周りのビカビカを消しておく
-        _rainbowEffect.SetActive(false);
+        StopFever();
     }
 
     void JudgeFever(float point)
@@ -74,8 +76,6 @@ public class FeverTime : MonoBehaviour
 
     async UniTask StartFeverAsync(CancellationToken ct)
     {
-        if (_isFever) return;
-
         //照明を点灯させる
         for (int i=0; i<_lights.Length ;i++)
         {
@@ -85,9 +85,10 @@ public class FeverTime : MonoBehaviour
         //少し遅らせる(ライトが光るまで少し時間がかかるため)
         await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationToRainbowEffect), cancellationToken: ct);
 
+        //空の色をフィーバー色に変える
+        _skyboxMaterial.SetColor(SkyTintID, _feverColor);
+
         //画面の周りをビカビカさせる
         _rainbowEffect.SetActive(true);
-
-        _isFever = true;
     }
 }
