@@ -23,6 +23,6 @@ public class ScoreUIManager : MonoBehaviour
 
     void UpdatePointText(float point)
     {
-        _pointText.text = point.ToString("0")+"kg";
+        _pointText.text = point.ToString("0")+"トン";
     }
 }
