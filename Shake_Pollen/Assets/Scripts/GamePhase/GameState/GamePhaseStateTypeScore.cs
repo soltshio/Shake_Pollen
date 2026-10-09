@@ -2,6 +2,7 @@
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //スコア表示
 
@@ -28,6 +29,12 @@ public class GamePhaseStateTypeScore : GamePhaseStateTypeBase
     [SerializeField]
     ShakePtManager _shakePt;
 
+    [SerializeField]
+    TextMeshProUGUI _titleInstructText;
+
+    [SerializeField]
+    PlayerInput _playerInput;
+
     [Header("skybox関係")]
 
     [SerializeField]
@@ -42,6 +49,11 @@ public class GamePhaseStateTypeScore : GamePhaseStateTypeBase
 
     [SerializeField]
     ParticleSystem _resultPellenEffect;
+
+    void Start()
+    {
+        _titleInstructText.enabled = false;
+    }
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
@@ -80,6 +92,7 @@ public class GamePhaseStateTypeScore : GamePhaseStateTypeBase
         _demoBGMAudioSource.Play();
 
         //タイトルシーンに戻す操作を可能にする
-        
+        _titleInstructText.enabled = true;
+        _playerInput.SwitchCurrentActionMap(ActionMapNameList.finish);
     }
 }
