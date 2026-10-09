@@ -338,11 +338,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.016666668
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
-      value: 3.7716565
+      value: 3.8397243
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_Name
@@ -355,7 +359,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1006904207}
   m_SourcePrefab: {fileID: 100100000, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
 --- !u!1001 &38079365
 PrefabInstance:
@@ -608,7 +615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.016666668
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
@@ -622,10 +633,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1903064269}
   m_SourcePrefab: {fileID: 100100000, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
 --- !u!1 &82978560
 GameObject:
@@ -953,6 +971,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142489914}
   m_CullTransparentMesh: 1
+--- !u!1 &149842192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+  m_PrefabInstance: {fileID: 1679412443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &222517799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1178,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
   m_PrefabInstance: {fileID: 1679412443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &325345266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149842192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739be0bbceb4bc246ae3a550ed7879a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeverLight
+  _particleSystem: {fileID: 325345263}
+  _interval: 1
+  _startRot: 250
+  _endRot: 280
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1472,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
   m_PrefabInstance: {fileID: 2142560573}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &349241928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+  m_PrefabInstance: {fileID: 32780088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &350448197 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2676502125532622454, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
@@ -1654,7 +1698,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4177526784
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2375,6 +2419,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &790205476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+  m_PrefabInstance: {fileID: 46786638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &810829005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,11 +2739,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.016666668
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
-      value: 2.4574237
+      value: 2.443461
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_Name
@@ -2707,7 +2760,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 951837209}
   m_SourcePrefab: {fileID: 100100000, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
 --- !u!1 &832575517
 GameObject:
@@ -2895,6 +2951,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859230352}
   m_CullTransparentMesh: 1
+--- !u!1 &864192691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+  m_PrefabInstance: {fileID: 813009415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &951837206 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
@@ -2905,6 +2966,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
   m_PrefabInstance: {fileID: 813009415}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &951837209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864192691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739be0bbceb4bc246ae3a550ed7879a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeverLight
+  _particleSystem: {fileID: 951837206}
+  _interval: 1
+  _startRot: 140
+  _endRot: 110
 --- !u!198 &980486657 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
@@ -2925,6 +3002,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
   m_PrefabInstance: {fileID: 32780088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1006904207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349241928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739be0bbceb4bc246ae3a550ed7879a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeverLight
+  _particleSystem: {fileID: 1006904204}
+  _interval: 1
+  _startRot: 220
+  _endRot: 250
 --- !u!1 &1015501373
 GameObject:
   m_ObjectHideFlags: 0
@@ -4365,7 +4458,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.016666668
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
@@ -4382,7 +4479,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 325345266}
   m_SourcePrefab: {fileID: 100100000, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
 --- !u!1 &1687033544
 GameObject:
@@ -4857,6 +4957,9 @@ MonoBehaviour:
   - {fileID: 325345263}
   - {fileID: 1903064266}
   _rainbowEffect: {fileID: 356185748800385487, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  _skyboxMaterial: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
+  _normalColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
+  _feverColor: {r: 0.14901961, g: 0.05490196, b: 0.1764706, a: 0.5019608}
 --- !u!1 &1862612701
 GameObject:
   m_ObjectHideFlags: 0
@@ -5055,6 +5158,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
   m_PrefabInstance: {fileID: 46786638}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1903064269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790205476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739be0bbceb4bc246ae3a550ed7879a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeverLight
+  _particleSystem: {fileID: 1903064266}
+  _interval: 1
+  _startRot: 110
+  _endRot: 80
 --- !u!1 &1986002930
 GameObject:
   m_ObjectHideFlags: 0
