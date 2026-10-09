@@ -35,6 +35,9 @@ public class GamePhaseStateTypeScore : GamePhaseStateTypeBase
     [SerializeField]
     PlayerInput _playerInput;
 
+    [SerializeField]
+    HighResultManager _highResultManager;
+
     [Header("skybox関係")]
 
     [SerializeField]
@@ -69,6 +72,9 @@ public class GamePhaseStateTypeScore : GamePhaseStateTypeBase
 
         //花粉のパーティクルを出す
         _resultPellenEffect.Play();
+
+        //高いスコアかどうかをチェック(高いスコアであれば追加の演出)
+        _highResultManager.CheckHighScore(_shakePt.Point);
 
         FinishAnnounceScoreAsync(this.GetCancellationTokenOnDestroy()).Forget();
     }
