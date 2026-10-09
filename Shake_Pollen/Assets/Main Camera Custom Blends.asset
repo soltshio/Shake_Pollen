@@ -14,10 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBlenderSettings
   CustomBlends:
   - From: DemoCamera
-    To: InGameCamera
+    To: MixingInGameCamera
     Blend:
       Style: 1
       Time: 1.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: MixingInGameCamera
+    To: ChargeCamera
+    Blend:
+      Style: 1
+      Time: 4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: ChargeCamera
+    To: AnnounceCamera
+    Blend:
+      Style: 1
+      Time: 0.5
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
