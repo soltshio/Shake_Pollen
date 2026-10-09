@@ -56,9 +56,6 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     CedarShake _cedarShake;
 
     [SerializeField]
-    PlayerInput _playerInput;
-
-    [SerializeField]
     FeverTime _feverTime;
 
     void Start()
@@ -71,8 +68,6 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
-        _playerInput.SwitchCurrentActionMap(ActionMapNameList.finish);
-
         _cedarShake.enabled = false;//杉が揺れないようにする
 
         _feverTime.StopFever();
