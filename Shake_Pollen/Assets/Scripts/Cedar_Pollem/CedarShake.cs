@@ -5,67 +5,75 @@
 public class CedarShake : MonoBehaviour
 {
     [SerializeField]
-    Transform _cedarTrs;
+    AccelSensorManager _accelSensorManager;
 
     [SerializeField]
-    AccelSensorManager _accelSensorManager;
+    ShakePtManager _shakePtManager;
+
+    [SerializeField]
+    Animator _cedarAnimator;
 
     [SerializeField]
     float _interval = 0.5f;
 
-    [Header("加速度による振り幅の変化")]
+    [Header("加速度による木を揺らすかのの判断")]
 
     [SerializeField]
-    float _minAccelMagnitude;
+    float _accelMagnitudeThresholdToShake;
+
+    [Header("ポイント量による振り幅の変化")]
 
     [SerializeField]
-    float _maxAccelMagnitude;
+    float _minPt;
 
     [SerializeField]
-    float _minAmplitude;
+    float _maxPt;
 
-    [SerializeField]
-    float _maxAmplitude;
+    [SerializeField] [Range(0,1)]
+    float _minAmplitudeRate;
 
-    float _time = 0;
+    [SerializeField] [Range(0, 1)]
+    float _maxAmplitudeRate;
 
-    float _amplitude;
+    float _time = 0f;
 
-    const float _timeRateOffset = 0.25f;//最初は真ん中になるようにしたいので、揺れの周期的に真ん中から始まるようにずらす
+    float _amplitudeRate=0f;
 
-    public float Amplitude { get => _amplitude; }
+    private static readonly int BlendXID = Animator.StringToHash("BlendX");
+
+    private static readonly int BlendYID = Animator.StringToHash("BlendY");
 
     private void Update()
     {
-        SetAmplitude(_accelSensorManager.Accel.magnitude);
-
-        if (_amplitude <= 0) return;//振れ幅が無いなら揺らさなくてよい
+        SetAmplitude(_accelSensorManager.Accel.magnitude,_shakePtManager.Point);
 
         _time += Time.deltaTime;
         _time %= _interval;
 
-        float xPosRate = MathfExtension.TriangleWave01(_time, 0, _interval);
-        float xPos = Mathf.Lerp(-_amplitude, _amplitude, xPosRate);
+        var timeRate = _time / _interval;
+        float rate = Mathf.Sin(2 * Mathf.PI * timeRate);
 
-        Vector3 currentPos = _cedarTrs.position;
-        currentPos.x = xPos;
-        _cedarTrs.position = currentPos;
+        _cedarAnimator.SetFloat(BlendXID, rate * _amplitudeRate);
     }
 
-    void SetAmplitude(float currentAccelMagnitude)
+    void SetAmplitude(float accelMag,float point)
     {
-        _amplitude = MathfExtension.Remap(currentAccelMagnitude, _minAccelMagnitude, _maxAccelMagnitude, _minAmplitude, _maxAmplitude);
+        if(accelMag<_accelMagnitudeThresholdToShake)//加速度が達していなかったら揺らさない
+        {
+            _amplitudeRate = 0f;
+            return;
+        }
 
-        _amplitude = Mathf.Clamp(_amplitude, _minAmplitude, _maxAmplitude);
+        //ポイント量によって振動幅を変える
+        _amplitudeRate = MathfExtension.Remap(point, _minPt, _maxPt, _minAmplitudeRate, _maxAmplitudeRate);
     }
 
     void OnEnable()
     {
         SetZeroPos();//中心に戻す
 
-        _amplitude = 0f;
-
-        _time = _timeRateOffset * _interval;
+        _time = 0f;
+        _amplitudeRate = 0f;
     }
 
     private void OnDisable()
@@ -75,8 +83,7 @@ public class CedarShake : MonoBehaviour
 
     void SetZeroPos()
     {
-        Vector3 currentPos = _cedarTrs.position;
-        currentPos.x = 0;
-        _cedarTrs.position = currentPos;
+        _cedarAnimator.SetFloat(BlendXID, 0f);
+        _cedarAnimator.SetFloat(BlendYID, 0f);
     }
 }

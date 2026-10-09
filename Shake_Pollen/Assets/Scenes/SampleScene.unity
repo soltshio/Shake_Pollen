@@ -1161,13 +1161,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d8c81a1edd8214e88e13211ef93d23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CedarShakeManager
-  _cedarTrs: {fileID: 323321878}
   _accelSensorManager: {fileID: 1862612702}
+  _shakePtManager: {fileID: 2106922014}
+  _cedarAnimator: {fileID: 688478107}
   _interval: 0.25
-  _minAccelMagnitude: 1.2
-  _maxAccelMagnitude: 5
-  _minAmplitude: 0
-  _maxAmplitude: 2
+  _accelMagnitudeThresholdToShake: 1.2
+  _minPt: 0
+  _maxPt: 50000
+  _minAmplitudeRate: 0.5
+  _maxAmplitudeRate: 1
 --- !u!198 &325345263 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
@@ -2282,7 +2284,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688478105}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8e485a5f5458b48afad2609c3c2759, type: 3}
   m_Name: 
@@ -4176,7 +4178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1482805576
 Transform:
   m_ObjectHideFlags: 0
@@ -4593,7 +4595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 29627fb758e22634d804afd36bc4a1e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.71
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 29627fb758e22634d804afd36bc4a1e8, type: 3}
       propertyPath: m_LocalRotation.w
