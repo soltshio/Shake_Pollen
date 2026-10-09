@@ -1164,11 +1164,11 @@ MonoBehaviour:
   _accelSensorManager: {fileID: 1862612702}
   _shakePtManager: {fileID: 2106922014}
   _cedarAnimator: {fileID: 688478107}
-  _interval: 0.25
+  _interval: 0.5
   _accelMagnitudeThresholdToShake: 1.2
   _minPt: 0
   _maxPt: 50000
-  _minAmplitudeRate: 0.5
+  _minAmplitudeRate: 0.25
   _maxAmplitudeRate: 1
 --- !u!198 &325345263 stripped
 ParticleSystem:
@@ -2277,19 +2277,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 29627fb758e22634d804afd36bc4a1e8, type: 3}
   m_PrefabInstance: {fileID: 1689944047}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &688478106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688478105}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8e485a5f5458b48afad2609c3c2759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimTest
-  _animator: {fileID: 688478107}
 --- !u!95 &688478107
 Animator:
   serializedVersion: 7
@@ -4636,9 +4623,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 29627fb758e22634d804afd36bc4a1e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 688478107}
-    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 29627fb758e22634d804afd36bc4a1e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 688478106}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 29627fb758e22634d804afd36bc4a1e8, type: 3}
 --- !u!1 &1691933160
 GameObject:
@@ -5802,6 +5786,14 @@ PrefabInstance:
     - target: {fileID: 4017956912425771088, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723232491860652774, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025458039970050055, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7851527540541044826, guid: 94e4647dc5de9994b801f8f14f1fadb0, type: 3}
       propertyPath: m_Name
