@@ -2,9 +2,7 @@
 using System;
 using System.Threading;
 using TMPro;
-using TMPro.EditorUtilities;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 //ゲーム中のフェーズ
 
