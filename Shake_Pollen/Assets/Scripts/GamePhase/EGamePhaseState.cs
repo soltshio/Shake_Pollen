@@ -9,6 +9,7 @@ public enum EGamePhaseState
     Countdown=0,//カウントダウン
     Finish,//終了時
     Demo,//デモシーン
+    Score,//スコア
 
     //☆インゲームシーン限定
     Game_InGameScene=1000,//ゲーム中

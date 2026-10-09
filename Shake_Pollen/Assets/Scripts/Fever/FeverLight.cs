@@ -36,8 +36,6 @@ public class FeverLight : MonoBehaviour
 
         float rot = MathfExtension.Remap(rate, -1, 1, _endRot, _startRot);
 
-        Debug.Log(rot);
-
         _main.startRotation = rot * Mathf.Deg2Rad;
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Threading;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,14 +10,10 @@ using UnityEngine.InputSystem;
 
 public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
 {
-    [Tooltip("終了してから結果発表するまでに待つ時間")] [SerializeField]
-    float _waitDurationForShowScore=2f;
+    [Header("終了")]
 
-    [SerializeField]
-    AudioSource _seAudioSource;
-
-    [SerializeField]
-    AudioSource _inGameAudioSource;
+    [Tooltip("終了してから溜め始めるまでに待つ時間")] [SerializeField]
+    float _waitDurationFromFinishToCharge = 2f;
 
     [SerializeField]
     AudioClip _finishSE;
@@ -25,32 +22,57 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
     Canvas _finishCanvas;
 
     [SerializeField]
-    Canvas _scoreCanvas;
+    CinemachineMixingCamera _inGameCamera;
 
     [SerializeField]
-    TextMeshProUGUI _scoreText;
+    CinemachineCamera _chargeCamera;
 
     [SerializeField]
-    ShakePtManager _shakePt;
+    TextMeshProUGUI _finishText;
+
+    [Header("溜め")]
+
+    [Tooltip("溜め始めてからカメラ切り替え始めるまでに時間")] [SerializeField]
+    float _waitDurationFromChargeToSwitchCamera = 2f;
+
+    [SerializeField]
+    AudioClip _chargeSE;
+
+    [SerializeField]
+    CinemachineCamera _announceCamera;
+
+    [SerializeField]
+    TextMeshProUGUI _announceText;
+
+    [Tooltip("カメラ切り替え始めてから結果発表までに時間")] [SerializeField]
+    float _waitDurationFromSwitchCameraToAnnounce = 2f;
+
+    [Header("以下はその他")]
+
+    [SerializeField]
+    AudioSource _seAudioSource;
 
     [SerializeField]
     CedarShake _cedarShake;
 
     [SerializeField]
-    PlayerInput _playerInput;
-
-    [SerializeField]
     FeverTime _feverTime;
+
+    void Start()
+    {
+        _chargeCamera.enabled = false;
+        _announceCamera.enabled = false;
+        _finishText.enabled = false;
+        _announceText.enabled = false;
+    }
 
     public override void OnEnter(GamePhaseStateMachine stateMachine)
     {
-        _playerInput.SwitchCurrentActionMap(ActionMapNameList.finish);
-
         _cedarShake.enabled = false;//杉が揺れないようにする
 
         _feverTime.StopFever();
 
-        ShowScoreUIAsync(this.GetCancellationTokenOnDestroy()).Forget();
+        ShowScoreUIAsync(this.GetCancellationTokenOnDestroy(),stateMachine).Forget();
     }
 
     public override void OnUpdate(GamePhaseStateMachine stateMachine)
@@ -63,21 +85,40 @@ public class GamePhaseStateTypeFinish : GamePhaseStateTypeBase
         
     }
 
-    async UniTask ShowScoreUIAsync(CancellationToken ct)
+    async UniTask ShowScoreUIAsync(CancellationToken ct, GamePhaseStateMachine stateMachine)
     {
-        //まず終了のUIを表示
+        //終了
         _finishCanvas.enabled = true;
+        _finishText.enabled = true;
+        _seAudioSource.PlayOneShot(_finishSE);
 
         //少し待つ
-        await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationForShowScore), cancellationToken: ct);
+        await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationFromFinishToCharge), cancellationToken: ct);
 
-        //インゲームのBGMを止める
-        _inGameAudioSource.Stop();
+        //溜め始める
+        _finishText.enabled = false;
+        _announceText.enabled = true;
 
-        //スコア表示
-        _seAudioSource.PlayOneShot(_finishSE);
+        _inGameCamera.enabled = false;
+        _chargeCamera.enabled = true;
+
+        _seAudioSource.PlayOneShot(_chargeSE);
+
+        //少し待ってから...
+        await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationFromChargeToSwitchCamera), cancellationToken: ct);
+
+        //締め
+
+        //カメラ切り替え
+        _chargeCamera.enabled = false;
+        _announceCamera.enabled = true;
+
+        //少し待ってから結果発表に移行
+        await UniTask.Delay(TimeSpan.FromSeconds(_waitDurationFromSwitchCameraToAnnounce), cancellationToken: ct);
+
+        //終了時のキャンバスを非表示に
         _finishCanvas.enabled = false;
-        _scoreCanvas.enabled = true;
-        _scoreText.text = _shakePt.Point.ToString("0") + "kg";
+
+        stateMachine.ChangeState(EGamePhaseState.Score);
     }
 }

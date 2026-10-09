@@ -7,6 +7,18 @@ public class AccelSensorManager : MonoBehaviour
     [SerializeField]
     int _movingAverageWindowSize = 20;
 
+    [SerializeField]
+    ActionMapInitializer _actionMapInitializer;
+
+    [SerializeField]
+    string _actionMapName;
+
+    [SerializeField]
+    PlayerInput _playerInput;
+
+    [SerializeField]
+    bool _isShowSensorValueLog = true;
+
     Vector3MovingAverage _vector3MovingAverage;
 
     Joycon _joycon;
@@ -28,8 +40,12 @@ public class AccelSensorManager : MonoBehaviour
         _accel = Vector3.zero;
     }
 
-    void Start()
+    void InitAction()
     {
+        InputActionMap targetMap = _playerInput.actions.FindActionMap(_actionMapName, true);
+
+        targetMap.Enable();
+
         _shakeAction = InputSystem.actions.FindActionMap(ActionMapNameList.shakeAM).FindAction("Shake");
     }
 
@@ -37,8 +53,15 @@ public class AccelSensorManager : MonoBehaviour
     {
         var ct = this.GetCancellationTokenOnDestroy();
 
+        _actionMapInitializer.OnCompleteInit += InitAction;
+
         //コントローラーの取得
         _joycon = await JoyconHandler.GetJoyconAsync(ct, EJoyconSide.Any);
+    }
+
+    private void OnDisable()
+    {
+        _actionMapInitializer.OnCompleteInit -= InitAction;
     }
 
     void Update()
@@ -67,6 +90,6 @@ public class AccelSensorManager : MonoBehaviour
         _accel = smoothedAccel;
         _accelMagnitude = accel.magnitude;
 
-        Debug.Log($"AccelMagnitude: {_accelMagnitude}");
+        if(_isShowSensorValueLog) Debug.Log($"AccelMagnitude: {_accelMagnitude}");
     }
 }
