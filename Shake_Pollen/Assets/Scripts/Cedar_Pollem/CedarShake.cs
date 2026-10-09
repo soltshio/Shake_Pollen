@@ -41,11 +41,15 @@ public class CedarShake : MonoBehaviour
 
     private static readonly int BlendXID = Animator.StringToHash("BlendX");
 
-    private static readonly int BlendYID = Animator.StringToHash("BlendY");
-
     private void Update()
     {
         SetAmplitude(_accelSensorManager.Accel.magnitude,_shakePtManager.Point);
+
+        if(_amplitudeRate <= 0f)
+        {
+            _cedarAnimator.SetFloat(BlendXID, 0f);
+            return;
+        }
 
         _time += Time.deltaTime;
         _time %= _interval;
@@ -70,7 +74,7 @@ public class CedarShake : MonoBehaviour
 
     void OnEnable()
     {
-        SetZeroPos();//中心に戻す
+        _cedarAnimator.SetFloat(BlendXID, 0f);
 
         _time = 0f;
         _amplitudeRate = 0f;
@@ -78,12 +82,6 @@ public class CedarShake : MonoBehaviour
 
     private void OnDisable()
     {
-        SetZeroPos();//中心に戻す
-    }
-
-    void SetZeroPos()
-    {
         _cedarAnimator.SetFloat(BlendXID, 0f);
-        _cedarAnimator.SetFloat(BlendYID, 0f);
     }
 }

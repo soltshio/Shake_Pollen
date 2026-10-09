@@ -1164,7 +1164,7 @@ MonoBehaviour:
   _accelSensorManager: {fileID: 1862612702}
   _shakePtManager: {fileID: 2106922014}
   _cedarAnimator: {fileID: 688478107}
-  _interval: 0.5
+  _interval: 0.6
   _accelMagnitudeThresholdToShake: 1.2
   _minPt: 0
   _maxPt: 50000
@@ -5039,6 +5039,8 @@ MonoBehaviour:
   _skyboxMaterial: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
   _normalColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
   _feverColor: {r: 0.14901961, g: 0.05490196, b: 0.1764706, a: 0.5019608}
+  _cedarAnimator: {fileID: 688478107}
+  _interval: 0.3
 --- !u!1 &1837912944
 GameObject:
   m_ObjectHideFlags: 0

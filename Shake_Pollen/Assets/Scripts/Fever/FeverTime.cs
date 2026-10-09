@@ -34,7 +34,20 @@ public class FeverTime : MonoBehaviour
     [SerializeField]
     Color _feverColor;
 
+    [Header("縦揺れ系")]
+
+    [SerializeField]
+    Animator _cedarAnimator;
+
+    [SerializeField]
+    float _interval;
+
+    float _time = 0f;
+    bool _isFever = false;
+
     private static readonly int SkyTintID = Shader.PropertyToID("_Tint");
+
+    private static readonly int BlendYID = Animator.StringToHash("BlendY");
 
     public void StopFever()
     {
@@ -49,6 +62,11 @@ public class FeverTime : MonoBehaviour
 
         //空の色を元に戻す
         _skyboxMaterial.SetColor(SkyTintID, _normalColor);
+
+        //木を元に戻す
+        _cedarAnimator.SetFloat(BlendYID, 0);
+
+        _isFever = false;
     }
 
     void OnEnable()
@@ -64,6 +82,20 @@ public class FeverTime : MonoBehaviour
     void Start()
     {
         StopFever();
+    }
+
+    void Update()
+    {
+        if (!_isFever) return;
+
+        _time += Time.deltaTime;
+        _time %= _interval;
+
+        var timeRate = _time / _interval;
+
+        float rate = Mathf.Sin(2 * Mathf.PI * timeRate);
+
+        _cedarAnimator.SetFloat(BlendYID, rate);
     }
 
     void JudgeFever(float point)
@@ -90,5 +122,7 @@ public class FeverTime : MonoBehaviour
 
         //画面の周りをビカビカさせる
         _rainbowEffect.SetActive(true);
+        
+        _isFever = true;
     }
 }
