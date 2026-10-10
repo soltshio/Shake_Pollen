@@ -1226,7 +1226,7 @@ MonoBehaviour:
   _interval: 0.6
   _accelMagnitudeThresholdToShake: 1.2
   _minPt: 0
-  _maxPt: 150000
+  _maxPt: 250000
   _minAmplitudeRate: 0.25
   _maxAmplitudeRate: 1
 --- !u!198 &325345263 stripped
