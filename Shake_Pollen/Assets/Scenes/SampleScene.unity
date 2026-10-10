@@ -1226,7 +1226,7 @@ MonoBehaviour:
   _interval: 0.6
   _accelMagnitudeThresholdToShake: 1.2
   _minPt: 0
-  _maxPt: 150000
+  _maxPt: 250000
   _minAmplitudeRate: 0.25
   _maxAmplitudeRate: 1
 --- !u!198 &325345263 stripped
@@ -1750,7 +1750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3067\u30B9\u30BF\u30FC\u30C8"
+  m_text: "\u30A8\u30F3\u30BF\u30FC\u30AD\u30FC\u3067\u30B9\u30BF\u30FC\u30C8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3067\u30BF\u30A4\u30C8\u30EB\u306B"
+  m_text: "\u30A8\u30F3\u30BF\u30FC\u30AD\u30FC\u3067\u30BF\u30A4\u30C8\u30EB\u306B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
