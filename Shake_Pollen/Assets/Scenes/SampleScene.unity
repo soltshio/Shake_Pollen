@@ -1750,7 +1750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3067\u30B9\u30BF\u30FC\u30C8"
+  m_text: "\u30A8\u30F3\u30BF\u30FC\u30AD\u30FC\u3067\u30B9\u30BF\u30FC\u30C8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3067\u30BF\u30A4\u30C8\u30EB\u306B"
+  m_text: "\u30A8\u30F3\u30BF\u30FC\u30AD\u30FC\u3067\u30BF\u30A4\u30C8\u30EB\u306B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
   m_sharedMaterial: {fileID: 7092438475781021009, guid: cf9f2eb0df8dc174d859c530e76ff314, type: 2}
@@ -2814,7 +2814,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788166219}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 330585545}
