@@ -278,11 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -355,6 +355,14 @@ PrefabInstance:
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -591,11 +599,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.45
+      value: -17.84
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -634,6 +642,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: ShapeModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -659,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
-      value: 2.0418606
+      value: 1.9024088
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_Name
@@ -668,6 +680,14 @@ PrefabInstance:
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_RenderAlignment
@@ -1206,7 +1226,7 @@ MonoBehaviour:
   _interval: 0.6
   _accelMagnitudeThresholdToShake: 1.2
   _minPt: 0
-  _maxPt: 50000
+  _maxPt: 150000
   _minAmplitudeRate: 0.25
   _maxAmplitudeRate: 1
 --- !u!198 &325345263 stripped
@@ -1233,8 +1253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverLight
   _particleSystem: {fileID: 325345263}
   _interval: 1
-  _startRot: 250
-  _endRot: 280
+  _startRot: 258
+  _endRot: 247
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,9 +2105,9 @@ Transform:
   m_Children:
   - {fileID: 980486658}
   - {fileID: 951837207}
+  - {fileID: 1903064267}
   - {fileID: 1006904205}
   - {fileID: 325345264}
-  - {fileID: 1903064267}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643209800
@@ -3072,11 +3092,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.03
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3149,6 +3169,14 @@ PrefabInstance:
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3373,8 +3401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverLight
   _particleSystem: {fileID: 951837206}
   _interval: 1
-  _startRot: 140
-  _endRot: 110
+  _startRot: 135
+  _endRot: 145
 --- !u!198 &980486657 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
@@ -3409,8 +3437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverLight
   _particleSystem: {fileID: 1006904204}
   _interval: 1
-  _startRot: 220
-  _endRot: 250
+  _startRot: 225
+  _endRot: 215
 --- !u!1 &1015501373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,8 +3486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineMixingCamera
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 5
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -3480,8 +3508,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
-  Weight0: 0
-  Weight1: 1
+  Weight0: 1
+  Weight1: 0
   Weight2: 0
   Weight3: 0
   Weight4: 0
@@ -3547,11 +3575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8899996
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.79
+      value: 30.71
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3607,7 +3635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.016666668
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
@@ -3620,6 +3652,14 @@ PrefabInstance:
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5265,11 +5305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.43
+      value: 25.8
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 2666371612109333521, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5333,7 +5373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2851273756005498800, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: InitialModule.startRotation.scalar
-      value: 4.2865286
+      value: 4.3807764
       objectReference: {fileID: 0}
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_Name
@@ -5342,6 +5382,14 @@ PrefabInstance:
     - target: {fileID: 3018697944628053699, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893545363657657843, guid: c1ba9e41ca176bd4c822cf9659bbf002, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6254,8 +6302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FeverLight
   _particleSystem: {fileID: 1903064266}
   _interval: 1
-  _startRot: 110
-  _endRot: 80
+  _startRot: 105
+  _endRot: 113
 --- !u!1 &1933393865
 GameObject:
   m_ObjectHideFlags: 0
